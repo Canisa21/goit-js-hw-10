@@ -32,17 +32,33 @@ breedSelect.addEventListener('change', e => {
   fetchCatByBreed(e.target.value).then(data => renderCat(data[0]));
 });
 
+
+
 function renderCat(catData) {
-  const { url } = catData;
-  const { description, name, temperament } = catData.breeds[0];
-  catInfo.insertAdjacentHTML(
-    'beforeend',
-    `<div>
+  if (catData) {
+    try {
+      const { url } = catData;
+      const { description, name, temperament } = catData.breeds[0];
+
+      catInfo.insertAdjacentHTML(
+        'beforeend',
+        `<div>
         <h2>${name}</h2>
         <img src="${url}" alt="${name}" />
         <p>Description:${description}</p>
         <p>Temperament:${temperament}</p>
     </div>`
-  );
-  load.classList.add("hidden");
+      );
+        load.style.display = 'none';
+      errorInf.style.display = 'none';
+    } catch (error) {
+      Notiflix.Notify.failure(
+        `Oops! Something went wrong! Try reloading the page!`
+      );
+    }
+  } else {
+    Notiflix.Notify.failure(
+      `Error loading content. Please try refreshing the page.`
+    );
+  }
 }
