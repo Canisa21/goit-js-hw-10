@@ -1,27 +1,30 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
+import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select';
+
 const breedSelect = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
 const load = document.querySelector(".loader");
 const errorInf = document.querySelector(".error");
 
+
 load.classList.add("hidden");
 errorInf.classList.add("hidden");
 
 try {
-  load.classList.remove("hidden");
-  fetchBreeds().then(data => renderSelect(data));
+ fetchBreeds().then(data => renderSelect(data));
 } catch (error) {
   console.log(error);
 }
+
 function renderSelect(breeds) {
   const markup = breeds
     .map(({ id, name }) => {
       return `<option value="${id}">${name}</option>`;
     })
     .join('');
-  breedSelect.insertAdjacentHTML('beforeend', markup);
-  load.classList.add("hidden");
+    breedSelect.insertAdjacentHTML('beforeend', markup);
 }
 
 breedSelect.addEventListener('change', e => {
