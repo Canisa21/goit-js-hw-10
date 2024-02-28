@@ -1,14 +1,74 @@
+body {
+ font-family: "Space Grotesk", sans-serif;; 
+ background-color: #FFF;  
+ background-image: url(./images/cat.jpg);;
+background-position: auto 70%;
+    background-size: cover;
+    background-attachment: fixed;
+   
+
+}
+.container {
+    max-width: 1158px;
+        margin: 0 auto;
+        padding: 0 15px;
+}
+
+.select-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+    padding-bottom: 30px;
+}
+
+
+.cat-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cat-pictures {
+    width: 768px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cat-pictures>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #efe8c3;
+    border-radius: 10px;
+}
+
+.cat-description {
+    height: auto;
+    border: 2px solid #efe8c3;
+    border-radius: 10px;
+    background-color: #FFF;
+    margin-top: 20px;
+    padding: 15px;
+
+}
+
 .hidden {
     display: none;
+}
+.loader-wrapper {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
 
 .load {
     width: 48px;
     height: 48px;
     border: 5px solid #FFF;
-    border-bottom-color: #2f00ff;
+    border-bottom-color: #96959e;
     border-radius: 50%;
-    display: inline-block;
+    display: flex;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
 }
@@ -22,3 +82,4 @@
         transform: rotate(360deg);
     }
 }
+

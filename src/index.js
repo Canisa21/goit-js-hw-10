@@ -24,7 +24,8 @@ function renderSelect(breeds) {
       return `<option value="${id}">${name}</option>`;
     })
     .join('');
-    breedSelect.insertAdjacentHTML('beforeend', markup);
+  breedSelect.insertAdjacentHTML('beforeend', markup);
+  
 }
 
 breedSelect.addEventListener('change', e => {
@@ -44,9 +45,13 @@ function renderCat(catData) {
         'beforeend',
         `<div>
         <h2>${name}</h2>
+        <figure class="cat-pictures">
         <img src="${url}" alt="${name}" />
-        <p>Description:${description}</p>
-        <p>Temperament:${temperament}</p>
+        <figcaption class="cat-description">
+        <p><strong>Description: </strong>${description}</p>
+        <p><strong>Temperament: </strong>${temperament}</p>
+        </figcaption>
+        </figure>
     </div>`
       );
         load.style.display = 'none';
